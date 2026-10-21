@@ -27,7 +27,7 @@ export default function StartButton({ isLoading }: { isLoading: boolean }) {
   return (
     <Tooltip content={`${state.isTyping ? '暂停' : '开始'} （Enter）`} className="shrink-0">
       <button
-        className={`${
+        className={`ml-auto sm:ml-0 ${
           state.isTyping ? 'bg-gray-500 dark:bg-gray-700 dark:hover:bg-gray-600' : 'bg-gray-900 dark:bg-gray-100'
         } my-btn-primary h-10 w-20 shrink-0 px-0 text-sm shadow sm:h-11 sm:w-24 sm:text-base`}
         type="button"

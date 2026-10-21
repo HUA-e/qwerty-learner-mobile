@@ -2,6 +2,7 @@ import atomForConfig from './atomForConfig'
 import { reviewInfoAtom } from './reviewInfoAtom'
 import { DISMISS_START_CARD_DATE_KEY, defaultFontSizeConfig } from '@/constants'
 import { idDictionaryMap } from '@/resources/dictionary'
+import { PERSONAL_WORDBOOK_ENABLED, PERSONAL_WORDBOOK_ID } from '@/resources/personalWordbook'
 import { correctSoundResources, keySoundResources, wrongSoundResources } from '@/resources/soundResource'
 import type {
   Dictionary,
@@ -16,7 +17,10 @@ import type { ReviewRecord } from '@/utils/db/record'
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 
-export const currentDictIdAtom = atomWithStorage('currentDict', 'cet4')
+const currentDictStorageKey = PERSONAL_WORDBOOK_ENABLED ? 'currentDictPersonalV1' : 'currentDict'
+const currentChapterStorageKey = PERSONAL_WORDBOOK_ENABLED ? 'currentChapterPersonalV1' : 'currentChapter'
+
+export const currentDictIdAtom = atomWithStorage(currentDictStorageKey, PERSONAL_WORDBOOK_ENABLED ? PERSONAL_WORDBOOK_ID : 'cet4')
 export const currentDictInfoAtom = atom<Dictionary>((get) => {
   const id = get(currentDictIdAtom)
   let dict = idDictionaryMap[id]
@@ -27,7 +31,7 @@ export const currentDictInfoAtom = atom<Dictionary>((get) => {
   return dict
 })
 
-export const currentChapterAtom = atomWithStorage('currentChapter', 0)
+export const currentChapterAtom = atomWithStorage(currentChapterStorageKey, 0)
 
 export const loopWordConfigAtom = atomForConfig<{ times: LoopWordTimesOption }>('loopWordConfig', {
   times: 1,

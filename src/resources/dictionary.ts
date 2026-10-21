@@ -1,5 +1,6 @@
 import type { Dictionary, DictionaryResource } from '@/typings/index'
 import { calcChapterCount } from '@/utils'
+import { personalWordbooks } from './personalWordbook'
 
 // 中国考试
 const chinaExam: DictionaryResource[] = [
@@ -4160,6 +4161,7 @@ const indonesianDicts: DictionaryResource[] = [
  * Why arrays? Because it keeps the order across browsers.
  */
 export const dictionaryResources: DictionaryResource[] = [
+  ...personalWordbooks,
   ...chinaExam,
   ...internationalExam,
   ...childrenEnglish,
