@@ -152,7 +152,7 @@ const App: React.FC = () => {
               {isLoading ? (
                 <div className="flex flex-col items-center justify-center ">
                   <div
-                    className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid  border-indigo-400 border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid  border-gray-900 border-r-transparent dark:border-gray-100 align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                     role="status"
                   ></div>
                 </div>

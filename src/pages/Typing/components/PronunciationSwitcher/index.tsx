@@ -109,8 +109,8 @@ const PronunciationSwitcher = () => {
       {({ open }) => (
         <>
           <Popover.Button
-            className={`flex h-8 min-w-max cursor-pointer items-center justify-center rounded-md px-1 transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white focus:outline-none dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100  ${
-              open ? 'bg-indigo-400 text-white' : 'bg-transparent'
+            className={`flex h-8 min-w-max cursor-pointer items-center justify-center rounded-md px-1 transition-colors duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none dark:text-white dark:text-opacity-60 dark:hover:text-opacity-100  ${
+              open ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-950' : 'bg-transparent'
             }`}
             onFocus={(e) => {
               e.target.blur()

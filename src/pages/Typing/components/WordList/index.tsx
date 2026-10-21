@@ -42,13 +42,13 @@ export default function WordList() {
         <button
           type="button"
           onClick={openModal}
-          className="fixed left-0 top-[50%] z-20 rounded-lg rounded-l-none bg-indigo-50 px-2 py-3 text-lg hover:bg-indigo-200 focus:outline-none dark:bg-indigo-900 dark:hover:bg-indigo-800"
+          className="fixed left-0 top-[50%] z-20 rounded-r-xl border border-l-0 border-gray-200 bg-white/75 px-2 py-3 text-lg shadow-sm backdrop-blur hover:bg-white focus:outline-none dark:border-gray-700 dark:bg-gray-900/75 dark:hover:bg-gray-800"
         >
-          <ListIcon className="h-6 w-6 text-lg text-indigo-500 dark:text-white" />
+          <ListIcon className="h-6 w-6 text-lg text-gray-700 dark:text-gray-200" />
         </button>
       </Tooltip>
 
-      <Drawer open={isOpen} onClose={closeModal} classNames="bg-stone-50 dark:bg-gray-900">
+      <Drawer open={isOpen} onClose={closeModal} classNames="bg-white/95 backdrop-blur-xl dark:bg-gray-950/95">
         <Dialog.Title as="h3" className="flex items-center justify-between p-4 text-lg font-medium leading-6 dark:text-gray-50">
           {currentDictTitleValue}
           <IconX onClick={closeModal} className="cursor-pointer" />

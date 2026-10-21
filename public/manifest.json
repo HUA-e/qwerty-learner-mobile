@@ -1,6 +1,6 @@
 {
-  "short_name": "Qwerty Learner",
-  "name": "Qwerty Learner",
+  "short_name": "拼词",
+  "name": "拼词 · 每天一点英文",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,17 +9,18 @@
     },
     {
       "src": "android-chrome-192x192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
       "src": "android-chrome-512x512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
+  "scope": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#ECEEF1",
+  "background_color": "#ECEEF1"
 }

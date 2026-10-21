@@ -33,8 +33,8 @@ export default function Setting() {
       <button
         type="button"
         onClick={openModal}
-        className={`flex items-center justify-center rounded p-[2px] text-lg text-indigo-500 outline-none transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white  ${
-          isOpen && 'bg-indigo-500 text-white'
+        className={`flex items-center justify-center rounded p-[2px] text-lg text-gray-800 outline-none dark:text-gray-200 transition-colors duration-300 ease-in-out hover:bg-teal-600 hover:text-white  ${
+          isOpen && 'bg-gray-900 text-white'
         }`}
         title="打开设置对话框"
         aria-label="打开设置"
@@ -67,21 +67,27 @@ export default function Setting() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="flex max-h-[92dvh] w-[calc(100vw-1.5rem)] max-w-[50rem] flex-col overflow-hidden rounded-2xl bg-white p-0 shadow-xl dark:bg-gray-800 sm:w-200">
-                  <div className="relative flex h-18 items-end justify-between rounded-t-lg border-b border-neutral-100 bg-stone-50 px-4 py-3 dark:border-neutral-700 dark:bg-gray-900 sm:h-22 sm:px-6">
+                <Dialog.Panel className="flex max-h-[92dvh] w-[calc(100vw-1.5rem)] max-w-[50rem] flex-col overflow-hidden rounded-2xl border border-gray-200 bg-[#F7F8F9] p-0 shadow-2xl dark:border-gray-700 dark:bg-[#17181B] sm:w-200">
+                  <div className="relative flex h-18 items-end justify-between rounded-t-2xl border-b border-gray-200/80 bg-white/50 px-4 py-3 dark:border-gray-800 dark:bg-gray-900/60 sm:h-22 sm:px-6">
                     <span className="text-2xl font-bold text-gray-600 sm:text-3xl">设置</span>
-                    <button type="button" onClick={() => setIsOpen(false)} title="关闭对话框">
-                      <IconX className="absolute right-7 top-5 cursor-pointer text-gray-400" />
+                    <button
+                      className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full text-gray-500 transition-colors hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100 sm:right-5 sm:top-4"
+                      type="button"
+                      onClick={() => setIsOpen(false)}
+                      title="关闭对话框"
+                      aria-label="关闭设置"
+                    >
+                      <IconX className="h-6 w-6" />
                     </button>
                   </div>
 
                   <Tab.Group vertical>
                     <div className="flex h-[calc(92dvh-4.5rem)] min-h-0 w-full flex-col sm:h-120 sm:flex-row">
-                      <Tab.List className="flex h-auto w-full shrink-0 flex-row items-center gap-2 overflow-x-auto border-b border-neutral-100 bg-stone-50 px-3 py-2 dark:border-transparent dark:bg-gray-900 sm:h-full sm:w-52 sm:flex-col sm:items-start sm:space-y-3 sm:overflow-visible sm:border-b-0 sm:border-r sm:px-6 sm:py-3">
+                      <Tab.List className="grid h-auto w-full shrink-0 grid-cols-2 gap-2 border-b border-gray-200/80 bg-white/30 px-3 py-2 dark:border-gray-800 dark:bg-gray-900/45 sm:flex sm:h-full sm:w-52 sm:flex-col sm:items-start sm:space-y-3 sm:overflow-visible sm:border-b-0 sm:border-r sm:px-6 sm:py-3">
                         <Tab
                           className={({ selected }) =>
                             classNames(
-                              'flex h-11 w-auto shrink-0 cursor-pointer items-center gap-2 rounded-lg px-3 py-2 ring-0 focus:outline-none sm:h-14 sm:w-full sm:px-4',
+                              'flex h-11 w-full cursor-pointer items-center gap-2 rounded-xl px-3 py-2 ring-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 sm:h-14 sm:w-full sm:px-4',
                               selected && 'bg-gray-200 bg-opacity-50 dark:bg-gray-800',
                             )
                           }
@@ -92,7 +98,7 @@ export default function Setting() {
                         <Tab
                           className={({ selected }) =>
                             classNames(
-                              'flex h-11 w-auto shrink-0 cursor-pointer items-center gap-2 rounded-lg px-3 py-2 ring-0 focus:outline-none sm:h-14 sm:w-full sm:px-4',
+                              'flex h-11 w-full cursor-pointer items-center gap-2 rounded-xl px-3 py-2 ring-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 sm:h-14 sm:w-full sm:px-4',
                               selected && 'bg-gray-200 bg-opacity-50 dark:bg-gray-800',
                             )
                           }
@@ -103,7 +109,7 @@ export default function Setting() {
                         <Tab
                           className={({ selected }) =>
                             classNames(
-                              'flex h-11 w-auto shrink-0 cursor-pointer items-center gap-2 rounded-lg px-3 py-2 ring-0 focus:outline-none sm:h-14 sm:w-full sm:px-4',
+                              'flex h-11 w-full cursor-pointer items-center gap-2 rounded-xl px-3 py-2 ring-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 sm:h-14 sm:w-full sm:px-4',
                               selected && 'bg-gray-200 bg-opacity-50 dark:bg-gray-800',
                             )
                           }
@@ -114,7 +120,7 @@ export default function Setting() {
                         <Tab
                           className={({ selected }) =>
                             classNames(
-                              'flex h-11 w-auto shrink-0 cursor-pointer items-center gap-2 rounded-lg px-3 py-2 ring-0 focus:outline-none sm:h-14 sm:w-full sm:px-4',
+                              'flex h-11 w-full cursor-pointer items-center gap-2 rounded-xl px-3 py-2 ring-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 sm:h-14 sm:w-full sm:px-4',
                               selected && 'bg-gray-200 bg-opacity-50 dark:bg-gray-800',
                             )
                           }

@@ -31,8 +31,8 @@ export default function DictRequest() {
           openState={showPanel}
           title="想要添加更多词典？"
           icon={IconBook2}
-          buttonClassName="bg-indigo-500 hover:bg-indigo-400"
-          iconClassName="text-indigo-500 bg-indigo-100 dark:text-indigo-300 dark:bg-indigo-500"
+          buttonClassName="bg-gray-900 hover:bg-gray-900"
+          iconClassName="text-gray-900 bg-gray-200 dark:text-gray-200 dark:bg-gray-900"
           onClose={onClosePanel}
         >
           <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -107,7 +107,7 @@ export default function DictRequest() {
       <button
         type="button"
         onClick={onOpenPanel}
-        className="group flex items-center space-x-2 rounded-lg border border-indigo-200 bg-gradient-to-r from-indigo-50 to-blue-50 px-4 py-2.5 text-sm font-medium text-indigo-600 shadow-sm transition-all duration-200 hover:scale-105 hover:border-indigo-300 hover:from-indigo-100 hover:to-blue-100 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:border-indigo-400 dark:from-gray-800 dark:to-gray-700 dark:text-indigo-400 dark:hover:from-gray-700 dark:hover:to-gray-600"
+        className="group flex items-center space-x-2 rounded-xl border border-gray-200 bg-white/70 px-4 py-2.5 text-sm font-medium text-gray-900 shadow-sm transition-all duration-200 hover:bg-white focus:outline-none focus:ring-2 focus:ring-gray-900/20 focus:ring-offset-2 dark:border-gray-700 dark:bg-gray-900/70 dark:text-gray-100 dark:hover:bg-gray-800"
       >
         <IconBook2 className="h-4 w-4" />
         <span>寻找更多词典</span>

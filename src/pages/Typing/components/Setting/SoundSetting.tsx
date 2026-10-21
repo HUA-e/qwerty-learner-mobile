@@ -266,7 +266,7 @@ export default function SoundSetting() {
                                     e.stopPropagation()
                                     onPlayKeySound(keySoundResource)
                                   }}
-                                  className="mr-2  hidden cursor-pointer text-neutral-500 hover:text-indigo-400 group-hover:block dark:text-neutral-300"
+                                  className="mr-2  hidden cursor-pointer text-neutral-500 hover:text-gray-900 dark:hover:text-gray-100 group-hover:block dark:text-neutral-300"
                                 />
                               </div>
                             </>
@@ -313,7 +313,7 @@ export default function SoundSetting() {
           </div>
         </div>
       </ScrollArea.Viewport>
-      <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent " orientation="vertical"></ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar className="hidden touch-none select-none bg-transparent sm:flex" orientation="vertical"></ScrollArea.Scrollbar>
     </ScrollArea.Root>
   )
 }

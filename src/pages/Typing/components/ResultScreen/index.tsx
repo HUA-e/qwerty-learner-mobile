@@ -221,7 +221,7 @@ const ResultScreen = () => {
         leaveTo="opacity-0"
       >
         <div className="flex min-h-[100dvh] items-start justify-center p-3 sm:h-screen sm:items-center sm:p-0">
-          <div className="my-card fixed flex max-h-[94dvh] w-[94vw] max-w-6xl flex-col overflow-y-auto rounded-3xl bg-white px-4 pb-6 pt-8 shadow-lg dark:bg-gray-800 sm:overflow-hidden sm:px-5 sm:pb-14 sm:pl-10 sm:pt-10 md:w-4/5 lg:w-3/5">
+          <div className="fixed flex max-h-[94dvh] w-[94vw] max-w-6xl flex-col overflow-y-auto rounded-3xl border border-gray-200 bg-[#F7F8F9] px-4 pb-6 pt-8 shadow-2xl dark:border-gray-700 dark:bg-[#17181B] sm:overflow-hidden sm:px-5 sm:pb-14 sm:pl-10 sm:pt-10 md:w-4/5 lg:w-3/5">
             <div className="text-center font-sans text-base font-normal text-gray-900 dark:text-gray-400 sm:text-xl md:text-2xl">
               {`${currentDictInfo.name} ${isReviewMode ? '错题复习' : '第' + (currentChapter + 1) + '章'}`}
             </div>
@@ -234,13 +234,13 @@ const ResultScreen = () => {
                 <RemarkRing remark={timeString} caption="章节耗时" size={ringSize} />
                 <RemarkRing remark={state.timerData.wpm + ''} caption="WPM" size={ringSize} />
               </div>
-              <div className="z-10 w-full overflow-visible rounded-xl bg-indigo-50 dark:bg-gray-700 sm:ml-6 sm:flex-1">
+              <div className="z-10 w-full overflow-visible rounded-xl bg-gray-100/80 dark:bg-gray-800/80 sm:ml-6 sm:flex-1">
                 <div className="customized-scrollbar z-20 mx-3 flex h-32 flex-row flex-wrap content-start gap-2 overflow-y-auto overflow-x-hidden pr-2 pt-4 sm:ml-8 sm:mr-1 sm:h-80 sm:gap-4 sm:pr-7 sm:pt-9">
                   {wrongWords.map((word, index) => (
                     <WordChip key={`${index}-${word.name}`} word={word} />
                   ))}
                 </div>
-                <div className="align-center flex w-full flex-row justify-start rounded-b-xl bg-indigo-200 px-4 dark:bg-indigo-400">
+                <div className="align-center flex w-full flex-row justify-start rounded-b-xl bg-teal-50 px-4 dark:bg-teal-950/50">
                   <ConclusionBar mistakeLevel={mistakeLevel} mistakeCount={wrongWords.length} />
                 </div>
               </div>

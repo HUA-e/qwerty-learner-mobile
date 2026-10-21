@@ -50,7 +50,7 @@ export default function MobileInputHandler({ updateInput }: { updateInput: (upda
         aria-label="手机拼写输入框"
         data-mobile-typing-input="true"
         placeholder={state.isTyping ? '键盘已打开，直接拼写' : '点这里打开键盘'}
-        className="h-12 w-full rounded-xl border-2 border-indigo-200 bg-white px-4 text-center font-mono text-base text-gray-700 shadow-sm outline-none transition-colors placeholder:text-gray-400 focus:border-indigo-400 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:placeholder:text-gray-500"
+        className="h-12 w-full rounded-2xl border border-gray-300/90 bg-white/70 px-4 text-center text-base font-medium text-gray-900 shadow-[0_8px_24px_rgba(11,12,14,0.06)] outline-none backdrop-blur transition-all placeholder:text-gray-500 focus:border-gray-900 focus:bg-white/90 focus:ring-2 focus:ring-gray-900/10 dark:border-gray-700 dark:bg-gray-900/70 dark:text-gray-100 dark:placeholder:text-gray-400 dark:focus:border-gray-100 dark:focus:bg-gray-900/90"
         onFocus={() => {
           if (!state.isTyping) dispatch({ type: TypingStateActionType.SET_IS_TYPING, payload: true })
         }}

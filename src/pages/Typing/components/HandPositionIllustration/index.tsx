@@ -20,8 +20,8 @@ export default function HandPositionIllustration() {
       <button
         type="button"
         onClick={openModal}
-        className={`flex items-center justify-center rounded p-[2px] text-lg text-indigo-500 outline-none transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white  ${
-          isOpen && 'bg-indigo-500 text-white'
+        className={`flex items-center justify-center rounded p-[2px] text-lg text-gray-800 dark:text-gray-200 outline-none transition-colors duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800  ${
+          isOpen && 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-950'
         }`}
       >
         <IconKeyboard className="icon"></IconKeyboard>

@@ -115,7 +115,7 @@ export default function AdvancedSetting() {
           </div>
         </div>
       </ScrollArea.Viewport>
-      <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent " orientation="vertical"></ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar className="hidden touch-none select-none bg-transparent sm:flex" orientation="vertical"></ScrollArea.Scrollbar>
     </ScrollArea.Root>
   )
 }

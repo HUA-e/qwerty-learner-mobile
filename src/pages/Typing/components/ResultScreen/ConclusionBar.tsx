@@ -13,17 +13,17 @@ type IconMapper = {
 const ICON_MAPPER: IconMapper[] = [
   {
     icon: IconHeart,
-    className: 'text-indigo-600',
+    className: 'text-teal-700 dark:text-teal-400',
     text: (mistakeCount: number) => `表现不错！` + (mistakeCount > 0 ? `只错了 ${mistakeCount} 个单词` : '全对了！'),
   },
   {
     icon: IconHandThumbUp,
-    className: 'text-indigo-600',
+    className: 'text-teal-700 dark:text-teal-400',
     text: () => '有些小问题哦，下一次可以做得更好！',
   },
   {
     icon: IconExclamationTriangle,
-    className: 'text-indigo-600',
+    className: 'text-teal-700 dark:text-teal-400',
     text: () => '错误太多，再来一次如何？',
   },
 ]

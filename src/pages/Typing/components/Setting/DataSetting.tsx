@@ -73,7 +73,7 @@ export default function DataSetting() {
                 value={exportProgress}
               >
                 <Progress.Indicator
-                  className="cubic-bezier(0.65, 0, 0.35, 1) h-full w-full bg-indigo-400 transition-transform duration-500 ease-out"
+                  className="cubic-bezier(0.65, 0, 0.35, 1) h-full w-full bg-teal-600 transition-transform duration-500 ease-out"
                   style={{ transform: `translateX(-${100 - exportProgress}%)` }}
                 />
               </Progress.Root>
@@ -102,7 +102,7 @@ export default function DataSetting() {
                 value={importProgress}
               >
                 <Progress.Indicator
-                  className="cubic-bezier(0.65, 0, 0.35, 1) h-full w-full bg-indigo-400 transition-transform duration-500 ease-out"
+                  className="cubic-bezier(0.65, 0, 0.35, 1) h-full w-full bg-teal-600 transition-transform duration-500 ease-out"
                   style={{ transform: `translateX(-${100 - importProgress}%)` }}
                 />
               </Progress.Root>
@@ -121,7 +121,7 @@ export default function DataSetting() {
           </div>
         </div>
       </ScrollArea.Viewport>
-      <ScrollArea.Scrollbar className="flex touch-none select-none bg-transparent " orientation="vertical"></ScrollArea.Scrollbar>
+      <ScrollArea.Scrollbar className="hidden touch-none select-none bg-transparent sm:flex" orientation="vertical"></ScrollArea.Scrollbar>
     </ScrollArea.Root>
   )
 }

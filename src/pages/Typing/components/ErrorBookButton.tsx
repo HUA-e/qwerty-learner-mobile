@@ -15,7 +15,7 @@ const ErrorBookButton = () => {
     <button
       type="button"
       onClick={toErrorBook}
-      className={`flex items-center justify-center rounded p-[2px] text-lg text-indigo-500 outline-none transition-colors duration-300 ease-in-out hover:bg-indigo-400 hover:text-white`}
+      className={`flex items-center justify-center rounded p-[2px] text-lg text-gray-800 dark:text-gray-200 outline-none transition-colors duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800`}
       title="查看错题本"
     >
       <IconBook className="icon" />

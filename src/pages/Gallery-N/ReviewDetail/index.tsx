@@ -36,7 +36,7 @@ export function ReviewDetail({ errorData, dict }: { errorData: TErrorWordData[];
   return (
     <div className="flex h-full flex-col items-center justify-around px-60">
       <div>
-        <MdiRobotAngry fontSize={30} className="text-indigo-300 " />
+        <MdiRobotAngry fontSize={30} className="text-gray-400 " />
         <blockquote>
           <p className="text-lg font-medium text-gray-600 dark:text-gray-300">
             我们将使用您在该词典的历史练习数据、错误次数、练习时间来智能生成练习列表
@@ -52,10 +52,10 @@ export function ReviewDetail({ errorData, dict }: { errorData: TErrorWordData[];
               <Progress.Root
                 value={latestReviewRecord.index + 1}
                 max={latestReviewRecord.words.length}
-                className="mr-4 h-2 w-full rounded-full border  border-indigo-400 bg-white"
+                className="mr-4 h-2 w-full rounded-full border  border-gray-300 bg-white"
               >
                 <Progress.Indicator
-                  className="h-full rounded-full bg-indigo-400 pl-0"
+                  className="h-full rounded-full bg-gray-900 pl-0"
                   style={{ width: `calc(${((latestReviewRecord.index + 1) / latestReviewRecord.words.length) * 100}% )` }}
                 />
               </Progress.Root>

@@ -165,8 +165,8 @@ export default function WordPanel() {
           <div className="relative flex w-full justify-center">
             {!state.isTyping && isDesktop && (
               <div className="absolute flex h-full w-full justify-center">
-                <div className="z-10 flex w-full items-center backdrop-blur-sm">
-                  <p className="w-full select-none text-center text-xl text-gray-600 dark:text-gray-50">
+                <div className="z-10 flex w-full items-center bg-[#ECEEF1]/[0.55] backdrop-blur-md dark:bg-gray-950/[0.55]">
+                  <p className="w-full select-none text-center text-lg font-medium tracking-wide text-gray-500 dark:text-gray-300">
                     按任意键{state.timerData.time ? '继续' : '开始'}
                   </p>
                 </div>

@@ -16,9 +16,9 @@ function DictionaryComponent({ dictionary, onClick }: Props) {
         <h1 className="mb-5 text-2xl font-normal">{dictionary.name}</h1>
         <p className="mb-6 text-lg text-gray-600">{dictionary.length}</p>
         <div className="mb-0 flex w-full items-center">
-          <Progress.Root value={10} max={100} className="mr-4 h-3.5 w-full rounded-full border-2 border-indigo-400 bg-white">
+          <Progress.Root value={10} max={100} className="mr-4 h-3.5 w-full rounded-full border-2 border-gray-300 bg-white">
             <Progress.Indicator
-              className="h-full -translate-x-px rounded-full bg-indigo-400 pl-0"
+              className="h-full -translate-x-px rounded-full bg-gray-900 pl-0"
               style={{ width: `calc(${10}% + 2px)` }}
             />
           </Progress.Root>

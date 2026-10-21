@@ -335,7 +335,7 @@ export default function WordComponent({ word, onFinish }: { word: Word; onFinish
             })}
           </div>
           {pronunciationIsOpen && (
-            <div className="absolute -right-8 top-1/2 h-8 w-8 -translate-y-1/2 transform sm:-right-12 sm:h-9 sm:w-9">
+            <div className="absolute -right-10 top-1/2 h-8 w-8 -translate-y-1/2 transform sm:-right-12 sm:h-9 sm:w-9">
               <Tooltip content={`快捷键${CTRL} + J`}>
                 <WordPronunciationIcon word={word} lang={currentLanguage} ref={wordPronunciationIconRef} className="h-full w-full" />
               </Tooltip>
