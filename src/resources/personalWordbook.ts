@@ -8,7 +8,7 @@ export const personalWordbooks: DictionaryResource[] = PERSONAL_WORDBOOK_ENABLED
       {
         id: PERSONAL_WORDBOOK_ID,
         name: '2027 红宝书',
-        description: '考研英语红宝书（必考 + 基础） · 5675 词 · 仅本机使用',
+        description: '考研英语红宝书（必考 + 基础） · 5675 词',
         category: '我的词书',
         tags: ['考研'],
         url: '/dicts/2027KaoYanHongBaoShu.json',

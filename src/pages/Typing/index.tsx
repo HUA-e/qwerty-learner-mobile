@@ -29,7 +29,7 @@ import { useImmerReducer } from 'use-immer'
 const App: React.FC = () => {
   const [state, dispatch] = useImmerReducer(typingReducer, structuredClone(initialState))
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const { words } = useWordList()
+  const { words, error: wordListError } = useWordList()
 
   const [currentDictId, setCurrentDictId] = useAtom(currentDictIdAtom)
   const setCurrentChapter = useSetAtom(currentChapterAtom)
@@ -134,7 +134,7 @@ const App: React.FC = () => {
             <AnalysisButton />
             <Setting />
           </div>
-          <StartButton isLoading={isLoading} />
+          <StartButton isLoading={isLoading || Boolean(wordListError)} />
           <Tooltip content="跳过该词">
             <button
               className={`${
@@ -149,7 +149,20 @@ const App: React.FC = () => {
         <div className="container mx-auto flex h-full flex-1 flex-col items-center justify-center px-2 pb-2 sm:px-0 sm:pb-5">
           <div className="container relative mx-auto flex h-full flex-col items-center">
             <div className="container flex flex-grow items-center justify-center">
-              {isLoading ? (
+              {wordListError ? (
+                <div
+                  role="alert"
+                  className="mx-4 flex max-w-sm flex-col items-center gap-4 rounded-2xl border border-red-200 bg-white/80 px-6 py-5 text-center text-sm text-gray-700 shadow-sm backdrop-blur dark:border-red-900/60 dark:bg-gray-900/70 dark:text-gray-200"
+                >
+                  <div>
+                    <p className="font-semibold text-gray-900 dark:text-gray-100">词书没有加载成功</p>
+                    <p className="mt-1 text-gray-500 dark:text-gray-400">可能是网络暂时断开，重新加载一次即可。</p>
+                  </div>
+                  <button type="button" className="my-btn-primary h-10 px-5 text-sm" onClick={() => window.location.reload()}>
+                    重新加载
+                  </button>
+                </div>
+              ) : isLoading ? (
                 <div className="flex flex-col items-center justify-center ">
                   <div
                     className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid  border-gray-900 border-r-transparent dark:border-gray-100 align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"

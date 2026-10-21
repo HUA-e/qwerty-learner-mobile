@@ -62,7 +62,7 @@
     "start": "vite",
     "build": "npm run build:local",
     "build:local": "cross-env CI=false VITE_PERSONAL_WORDBOOK=false vite build --base=/",
-    "build:personal": "cross-env CI=false VITE_PERSONAL_WORDBOOK=true vite build --base=/ && node scripts/import-personal-wordbook.mjs",
+    "build:personal": "node scripts/import-personal-wordbook.mjs prepare && cross-env CI=false VITE_PERSONAL_WORDBOOK=true vite build --base=/ && node scripts/import-personal-wordbook.mjs emit",
     "build:pages": "cross-env CI=false VITE_ENABLE_ANALYTICS=false VITE_PERSONAL_WORDBOOK=false vite build --base=/qwerty-learner-mobile/",
     "test": "echo \"No tests\"",
     "test:e2e": "playwright test",
