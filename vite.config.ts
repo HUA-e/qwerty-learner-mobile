@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react'
+import legacy from '@vitejs/plugin-legacy'
 import { promises as fs } from 'fs'
 import { getLastCommit } from 'git-last-commit'
 import jotaiDebugLabel from 'jotai/babel/plugin-debug-label'
@@ -17,6 +18,10 @@ export default defineConfig(async ({ mode }) => {
   return {
     plugins: [
       react({ babel: { plugins: [jotaiDebugLabel, jotaiReactRefresh] } }),
+      legacy({
+        targets: ['Android >= 7', 'Chrome >= 60', 'iOS >= 12', 'Safari >= 12'],
+        modernPolyfills: true,
+      }) as PluginOption,
       visualizer() as PluginOption,
       Icons({
         compiler: 'jsx',

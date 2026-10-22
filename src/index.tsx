@@ -53,4 +53,7 @@ function Root() {
 
 const container = document.getElementById('root')
 
-container && createRoot(container).render(<Root />)
+if (container) {
+  container.innerHTML = ''
+  createRoot(container).render(<Root />)
+}

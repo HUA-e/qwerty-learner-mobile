@@ -86,6 +86,104 @@
     <link rel="source" href="https://qwerty.kaiyi.cool" />
     <link rel="manifest" href="/manifest.json" />
 
+    <style>
+      #boot-screen {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        box-sizing: border-box;
+        color: #101215;
+        background:
+          radial-gradient(circle at 18% -8%, rgba(255, 255, 255, 0.98), transparent 42%),
+          radial-gradient(circle at 92% 8%, rgba(164, 178, 181, 0.22), transparent 36%),
+          linear-gradient(145deg, #f7f8f9 0%, #e8ebed 100%);
+        font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Segoe UI", sans-serif;
+      }
+
+      .boot-card {
+        width: 100%;
+        max-width: 360px;
+        padding: 30px 24px;
+        box-sizing: border-box;
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        border-radius: 24px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.72);
+        box-shadow: 0 18px 50px rgba(11, 12, 14, 0.09);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+      }
+
+      .boot-mark {
+        display: inline-flex;
+        width: 52px;
+        height: 52px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 16px;
+        color: #fff;
+        background: #0b0c0e;
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      .boot-title {
+        margin: 18px 0 0;
+        font-size: 20px;
+        font-weight: 650;
+      }
+
+      .boot-detail {
+        margin: 10px 0 0;
+        color: #667078;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .boot-actions {
+        margin-top: 18px;
+      }
+
+      .boot-button {
+        height: 44px;
+        padding: 0 22px;
+        border: 0;
+        border-radius: 12px;
+        color: #fff;
+        background: #0b0c0e;
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        #boot-screen {
+          color: #e6e7ea;
+          background:
+            radial-gradient(circle at 18% -8%, rgba(70, 74, 79, 0.38), transparent 42%),
+            radial-gradient(circle at 92% 8%, rgba(45, 212, 191, 0.08), transparent 34%),
+            linear-gradient(145deg, #111216 0%, #090a0c 100%);
+        }
+
+        .boot-card {
+          border-color: rgba(255, 255, 255, 0.09);
+          background: rgba(23, 24, 27, 0.82);
+          box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+        }
+
+        .boot-detail {
+          color: #9ca3aa;
+        }
+
+        .boot-mark,
+        .boot-button {
+          color: #0b0c0e;
+          background: #f1f2f3;
+        }
+      }
+    </style>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
@@ -186,7 +284,66 @@
       <div>You need to enable JavaScript to run QWERTY Learner.</div>
       <div>你需要启用 JavaScript 来运行 QWERTY Learner。</div>
     </noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div id="boot-screen">
+        <div class="boot-card">
+          <div class="boot-mark">拼</div>
+          <p class="boot-title" id="boot-title">正在加载拼词…</p>
+          <p class="boot-detail" id="boot-detail">第一次打开可能需要几秒，请不要着急关闭。</p>
+          <div class="boot-actions" id="boot-actions"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      ;(function () {
+        var root = document.getElementById('root')
+        var title = document.getElementById('boot-title')
+        var detail = document.getElementById('boot-detail')
+        var actions = document.getElementById('boot-actions')
+
+        function showBootError() {
+          if (!root || !document.getElementById('boot-screen')) return
+          if (title) title.textContent = '页面没有启动成功'
+          if (detail) detail.textContent = '可能是微信内置浏览器版本偏旧或网络暂时不稳定。请重新加载；仍然空白时，点右上角用系统浏览器打开。'
+          if (actions && !actions.firstChild) {
+            var button = document.createElement('button')
+            button.type = 'button'
+            button.className = 'boot-button'
+            button.textContent = '重新加载'
+            button.onclick = function () {
+              window.location.reload()
+            }
+            actions.appendChild(button)
+          }
+        }
+
+        window.addEventListener(
+          'error',
+          function (event) {
+            if (event && event.target && (event.target.tagName === 'SCRIPT' || event.target.tagName === 'LINK')) {
+              showBootError()
+            }
+          },
+          true,
+        )
+        window.addEventListener('unhandledrejection', showBootError)
+        window.setTimeout(function () {
+          if (!document.getElementById('boot-screen')) return
+          if (title) title.textContent = '加载时间有点久'
+          if (detail) detail.textContent = '网络较慢时可以点下面重新加载；如果一直停在这里，请用手机系统浏览器打开。'
+          if (actions && !actions.firstChild) {
+            var button = document.createElement('button')
+            button.type = 'button'
+            button.className = 'boot-button'
+            button.textContent = '重新加载'
+            button.onclick = function () {
+              window.location.reload()
+            }
+            actions.appendChild(button)
+          }
+        }, 15000)
+      })()
+    </script>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
