@@ -4,8 +4,7 @@ import PronunciationSwitcher from './components/PronunciationSwitcher'
 import ResultScreen from './components/ResultScreen'
 import Speed from './components/Speed'
 import StartButton from './components/StartButton'
-import AnalysisButton from './components/AnalysisButton'
-import ErrorBookButton from './components/ErrorBookButton'
+import MobileTools from './components/MobileTools'
 import Setting from './components/Setting'
 import Switcher from './components/Switcher'
 import WordList from './components/WordList'
@@ -130,8 +129,7 @@ const App: React.FC = () => {
             <Switcher />
           </div>
           <div className="flex items-center gap-1 sm:hidden">
-            <ErrorBookButton />
-            <AnalysisButton />
+            <MobileTools />
             <Setting />
           </div>
           <StartButton isLoading={isLoading || Boolean(wordListError)} />

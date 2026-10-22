@@ -67,8 +67,15 @@ const RowDetail: React.FC<RowDetailProps> = ({ currentRowDetail, allRecords }) =
 
   return (
     <div className="absolute inset-0 flex  flex-col items-center  justify-center ">
-      <div className="my-card relative z-10 flex h-[32rem] min-w-[26rem] select-text flex-col items-center justify-around rounded-2xl bg-white px-3 py-10 dark:bg-gray-900">
-        <IconX className="absolute right-3 top-3  h-6 w-6 cursor-pointer text-gray-400" onClick={onClose} />
+      <div className="my-card relative z-10 flex h-[min(32rem,calc(100dvh-2rem))] w-[calc(100vw-1.5rem)] max-w-[26rem] select-text flex-col items-center justify-around rounded-2xl bg-white px-4 py-7 dark:bg-gray-900 sm:min-w-[26rem] sm:px-3 sm:py-10">
+        <button
+          type="button"
+          aria-label="关闭错题详情"
+          onClick={onClose}
+          className="absolute right-2 top-2 z-20 flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-800 dark:hover:text-gray-200"
+        >
+          <IconX className="h-6 w-6" />
+        </button>
         <div className="flex flex-col items-center justify-start">
           <div>
             {currentRowDetail.word.split('').map((t, index) => (
@@ -92,12 +99,12 @@ const RowDetail: React.FC<RowDetailProps> = ({ currentRowDetail, allRecords }) =
             </span>
           </div>
         </div>
-        <div className="item flex flex-col gap-4">
-          <div className="flex gap-6">
+        <div className="item flex w-full max-w-[22rem] flex-col gap-3 px-1">
+          <div className="grid w-full grid-cols-2 gap-3">
             <DataTag icon={ClockIcon} name="平均用时" data={rowDetailData.time} />
             <DataTag icon={HashtagIcon} name="练习次数" data={rowDetailData.sumCount} />
           </div>
-          <div className="flex gap-6">
+          <div className="grid w-full grid-cols-2 gap-3">
             <DataTag icon={CheckCircle} name="正确次数" data={rowDetailData.correctCount} />
             <DataTag icon={XCircle} name="错误次数" data={rowDetailData.wrongCount} />
           </div>

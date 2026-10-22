@@ -251,7 +251,14 @@ const ResultScreen = () => {
                 {!isReviewMode && (
                   <>
                     <ShareButton />
-                    <IexportWords fontSize={18} className="cursor-pointer text-gray-500" onClick={exportWords}></IexportWords>
+                    <button
+                      type="button"
+                      aria-label="导出本组单词"
+                      onClick={exportWords}
+                      className="flex h-11 w-11 items-center justify-center rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+                    >
+                      <IexportWords fontSize={18} />
+                    </button>
                   </>
                 )}
                 <div className="hidden sm:block">

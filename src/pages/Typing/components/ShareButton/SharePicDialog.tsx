@@ -117,16 +117,21 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-xl bg-white text-left shadow-xl transition-all  dark:bg-gray-700">
-                  <div className="flex flex-col items-center justify-center pb-10 pl-20 pr-14 pt-20">
-                    <button className="absolute right-7 top-5" type="button" onClick={handleClose} title="关闭对话框">
+                <Dialog.Panel className="relative w-[calc(100vw-1.5rem)] max-w-[34rem] transform overflow-hidden rounded-xl bg-white text-left shadow-xl transition-all dark:bg-gray-700">
+                  <div className="flex max-h-[92dvh] flex-col items-center justify-center overflow-y-auto px-3 pb-5 pt-12 sm:px-14 sm:pb-10 sm:pl-20 sm:pt-20">
+                    <button
+                      className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-600 dark:hover:text-gray-100 sm:right-7 sm:top-5"
+                      type="button"
+                      onClick={handleClose}
+                      aria-label="关闭分享预览"
+                    >
                       <IconXMark className="h-6 w-6 text-gray-400" />
                     </button>
-                    <div className="h-152 w-116">
+                    <div className="w-full max-w-[29rem]">
                       {imageURL ? (
-                        <img src={imageURL} className="h-auto w-full" />
+                        <img src={imageURL} alt="成绩分享图" className="h-auto w-full rounded-lg" />
                       ) : (
-                        <div className="flex h-full w-full items-center justify-center rounded-lg border-2 border-solid border-white">
+                        <div className="flex aspect-[3/4] w-full items-center justify-center rounded-lg border-2 border-solid border-gray-100 bg-gray-50 dark:border-gray-600 dark:bg-gray-800">
                           <svg
                             className="-ml-1 mr-3 h-5 w-5 animate-spin text-white"
                             xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +150,7 @@ export default function SharePicDialog({ showState, setShowState, randomChoose }
                     </div>
                     <button
                       ref={dialogFocusRef}
-                      className="my-btn-primary mr-9 mt-10 h-10"
+                      className="my-btn-primary mt-4 h-11 w-full max-w-48 sm:mr-9 sm:mt-10"
                       type="button"
                       onClick={handleDownload}
                       title="保存"

@@ -4,7 +4,7 @@ import { Fragment, useState } from 'react'
 import IconKeyboard from '~icons/ic/round-keyboard'
 import IconX from '~icons/tabler/x'
 
-export default function HandPositionIllustration() {
+export default function HandPositionIllustration({ showLabel = false }: { showLabel?: boolean }) {
   const [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
@@ -20,15 +20,21 @@ export default function HandPositionIllustration() {
       <button
         type="button"
         onClick={openModal}
-        className={`flex items-center justify-center rounded p-[2px] text-lg text-gray-800 dark:text-gray-200 outline-none transition-colors duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800  ${
-          isOpen && 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-950'
-        }`}
+        aria-label="指法图示"
+        className={
+          showLabel
+            ? 'flex w-full items-center gap-3 rounded-xl px-1 py-3 text-left text-sm font-medium text-gray-800 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800'
+            : `flex items-center justify-center rounded p-[2px] text-lg text-gray-800 dark:text-gray-200 outline-none transition-colors duration-300 ease-in-out hover:bg-gray-100 dark:hover:bg-gray-800 ${
+                isOpen && 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-950'
+              }`
+        }
       >
-        <IconKeyboard className="icon"></IconKeyboard>
+        <IconKeyboard className="icon text-gray-500"></IconKeyboard>
+        {showLabel && <span>指法图示</span>}
       </button>
 
       <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-[60]" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -52,9 +58,14 @@ export default function HandPositionIllustration() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-200  transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all dark:bg-gray-800">
-                  <button type="button" onClick={() => setIsOpen(false)} title="关闭对话框">
-                    <IconX className="absolute right-7 top-5 cursor-pointer text-gray-400" />
+                <Dialog.Panel className="relative max-h-[calc(100dvh-2rem)] w-[calc(100vw-1.5rem)] max-w-[50rem] transform overflow-y-auto rounded-2xl bg-white p-4 text-left align-middle shadow-xl transition-all dark:bg-gray-800 sm:p-6">
+                  <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    aria-label="关闭指法图示"
+                    className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-gray-700 dark:hover:text-gray-100"
+                  >
+                    <IconX className="h-6 w-6" />
                   </button>
                   <Dialog.Title as="h3" className="text-center text-xl font-medium leading-6 text-gray-800 dark:text-gray-200">
                     推荐打字指法图示

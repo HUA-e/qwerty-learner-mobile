@@ -181,6 +181,26 @@ export default function WordPanel() {
                 onMouseEnter={() => handleShowTranslation(true)}
                 onMouseLeave={() => handleShowTranslation(false)}
               />
+              {state.isTyping && isShowPrevAndNextWord && (
+                <div className="mt-3 flex items-center justify-center gap-2 sm:hidden">
+                  <button
+                    type="button"
+                    onClick={() => onSkipWord('prev')}
+                    disabled={state.chapterData.index === 0}
+                    className="rounded-xl border border-gray-200 bg-white/60 px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-35 dark:border-gray-700 dark:bg-gray-900/60 dark:text-gray-300"
+                  >
+                    ← 上一词
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onSkipWord('next')}
+                    disabled={state.chapterData.index >= state.chapterData.words.length - 1}
+                    className="rounded-xl border border-gray-200 bg-white/60 px-4 py-2 text-sm font-medium text-gray-600 shadow-sm disabled:opacity-35 dark:border-gray-700 dark:bg-gray-900/60 dark:text-gray-300"
+                  >
+                    下一词 →
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         )}

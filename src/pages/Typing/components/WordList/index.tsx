@@ -51,7 +51,14 @@ export default function WordList() {
       <Drawer open={isOpen} onClose={closeModal} classNames="bg-white/95 backdrop-blur-xl dark:bg-gray-950/95">
         <Dialog.Title as="h3" className="flex items-center justify-between p-4 text-lg font-medium leading-6 dark:text-gray-50">
           {currentDictTitleValue}
-          <IconX onClick={closeModal} className="cursor-pointer" />
+          <button
+            type="button"
+            aria-label="关闭单词列表"
+            onClick={closeModal}
+            className="flex h-10 w-10 items-center justify-center rounded-full text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800"
+          >
+            <IconX className="h-5 w-5" />
+          </button>
         </Dialog.Title>
         <ScrollArea.Root className="flex-1 select-none overflow-y-auto ">
           <ScrollArea.Viewport className="h-full w-full px-3">

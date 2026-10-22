@@ -102,7 +102,10 @@ const DropdownExport: FC<DropdownProps> = ({ renderRecords }) => {
     <div className="z-10">
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
-          <button className="my-btn-primary h-8 shadow transition hover:bg-indigo-600 disabled:opacity-50" disabled={isExporting}>
+          <button
+            className="my-btn-primary h-8 px-3 text-sm shadow transition hover:bg-indigo-600 disabled:opacity-50 sm:px-6 sm:text-base"
+            disabled={isExporting || renderRecords.length === 0}
+          >
             {isExporting ? '导出中...' : '导出'}
           </button>
         </DropdownMenu.Trigger>
